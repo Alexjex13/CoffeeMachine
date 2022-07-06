@@ -1,0 +1,167 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .tempMessages{
+        display:none;
+    }
+
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To the Hot Drink Machine Simulator</h1>
+
+    <div id="coffeeMachine" class="list-group-horizontal-sm">
+        <label>Choose A Recipe: </label>
+        <!--Select field to choose the drink desired-->
+        <select id="coffeeMachineSelector" name="coffeeMachineSelector">
+            <option value="default">
+                -Select-
+            </option>
+            <option value="Lemon Tea">
+                Lemon Tea
+            </option>
+            <option value="Coffee">
+                Coffee
+            </option>
+            <option value="Hot Chocolate">
+                Hot Chocolate
+            </option>
+        </select>
+        <!--Input button to confirm choice-->
+        <input type="submit" value="Start" onclick="coffeeMachineGo()" />
+
+        <!--Hidden areas to show depending on choice and recipe could be automated with database interactions for many recipes-->
+        <div id="boilingwater" class="tempMessages">
+            <p>Boiling Water...</p>
+        </div>
+        <div id="steepwater" class="tempMessages">
+            <p>Steep Water in Tea...</p>
+        </div>
+        <div id="pouringTea" class="tempMessages">
+            <p>Pouring Tea...</p>
+        </div>
+        <div id="addingLemon" class="tempMessages">
+            <p>Add Lemon...</p>
+        </div>
+        <div id="allDone" class="tempMessages">
+            <p>Heres Your Drink!</p>
+        </div>
+        <div id="brewCoffee" class="tempMessages">
+            <p>Brewing Coffee Grounds...</p>
+        </div>
+        <div id="pourCoffee" class="tempMessages">
+            <p>Pouring Tea...</p>
+        </div>
+        <div id="addSugarAndMilk" class="tempMessages">
+            <p>Adding Milk and Sugar...</p>
+        </div>
+        <div id="cocoPowder" class="tempMessages">
+            <p>Adding Chocolate Powder...</p>
+        </div>
+        <div id="pourChocolate" class="tempMessages">
+            <p>Pouring Hot Chocolate...</p>
+        </div>
+        <div id="newDrink" class="tempMessages">
+            <p>Starting A New Drink...</p>
+        </div>
+        <div id="coffeeMug" class="tempMessages" >
+            <img src="~/Images/coffeemug.png" height="100" width="100"/>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    //function that is called when selection confirmed runs asyncronously to allow promises
+    async function coffeeMachineGo() {
+        var choice = $("#coffeeMachineSelector").val();
+        //reset open/closed elements to starting defaults
+        $("#allDone").hide();
+        $("#newDrink").show();
+        $("#coffeeMug").hide();
+        await delay(1000);
+        $("#newDrink").fadeOut(200);
+        await delay(500);
+        //switch statement for each choice
+        switch(choice) {
+            case "Lemon Tea":
+                await lemonTeam();
+            break;
+            case "Coffee":
+                await coffee();
+            break;
+            case "Hot Chocolate":
+                await hotChocolate();
+            break;
+        }
+    }
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time));
+    }
+
+    //funtions for each choice
+    async function lemonTeam() {
+        $("#boilingwater").show();
+        await delay(1000);
+        $("#boilingwater").fadeOut(1000);
+        await delay(1000);
+        $("#steepwater").show();
+        await delay(1000);
+        $("#steepwater").fadeOut(1000);
+        await delay(1000);
+        $("#pouringTea").show();
+        await delay(1000);
+        $("#pouringTea").fadeOut(1000);
+        await delay(1000);
+        $("#addingLemon").show();
+        await delay(1000);
+        $("#addingLemon").fadeOut(1000);
+        await delay(1000);
+        $("#coffeeMug").show();
+        $("#allDone").show();
+    }
+
+    async function coffee() {
+        $("#boilingwater").show();
+        await delay(1000);
+        $("#boilingwater").fadeOut(1000);
+        await delay(1000);
+        $("#brewCoffee").show();
+        await delay(1000);
+        $("#brewCoffee").fadeOut(1000);
+        await delay(1000);
+        $("#pourCoffee").show();
+        await delay(1000);
+        $("#pourCoffee").fadeOut(1000);
+        await delay(1000);
+        $("#addSugarAndMilk").show();
+        await delay(1000);
+        $("#addSugarAndMilk").fadeOut(1000);
+        await delay(1000);
+        $("#coffeeMug").show();
+        $("#allDone").show();
+    }
+
+    async function hotChocolate() {
+        $("#boilingwater").show();
+        await delay(1000);
+        $("#boilingwater").fadeOut(1000);
+        await delay(1000);
+        $("#cocoPowder").show();
+        await delay(1000);
+        $("#cocoPowder").fadeOut(1000);
+        await delay(1000);
+        $("#pourChocolate").show();
+        await delay(1000);
+        $("#pourChocolate").fadeOut(1000);
+        await delay(1000);
+        $("#coffeeMug").show();
+        $("#allDone").show();
+    }
+
+</script>

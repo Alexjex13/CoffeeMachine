@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedRiverHotDrinksMachine", "RedRiverHotDrinksMachine.csproj", "{CAD41890-B2DC-49D0-BC1A-58CD26963351}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAD41890-B2DC-49D0-BC1A-58CD26963351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD41890-B2DC-49D0-BC1A-58CD26963351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD41890-B2DC-49D0-BC1A-58CD26963351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD41890-B2DC-49D0-BC1A-58CD26963351}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49F3193E-C535-4D6C-841C-9ED5BA3211FE}
+	EndGlobalSection
+EndGlobal
